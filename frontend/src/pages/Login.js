@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 //import API from '../services/api';
 
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,6 +17,7 @@ const Login = () => {
     } else {
       console.log('Email:', email);
       console.log('Senha:', password);
+      navigate('/register')
     }
   };
 
@@ -47,7 +52,7 @@ const Login = () => {
           <button type="submit" className="btn btn-primary w-100">Entrar</button>
         </form>
         <div className="mt-3 text-center">
-          <p>Não tem uma conta? <a href="/signup">Cadastre-se</a></p>
+          <p>Não tem uma conta? <a href="register">Cadastre-se</a></p>
         </div>
       </div>
     </div>
