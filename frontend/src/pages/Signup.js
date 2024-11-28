@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [name, setName] = useState('');
@@ -6,6 +7,8 @@ const SignupPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +19,8 @@ const SignupPage = () => {
       console.log('Data de Nascimento:', birthdate);
       console.log('Email:', email);
       console.log('Senha:', password);
+      
+      navigate('/login')
     }
   };
 
