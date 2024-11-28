@@ -10,11 +10,16 @@ import {
   Card,
 } from "react-bootstrap";
 
+import { useNavigate } from "react-router-dom";
+
 import { IoMdPerson } from "react-icons/io";
 
 import Logo from "../assets/newspaper-folded.png";
 
 const LandingPage = () => {
+
+  const navigate = useNavigate();
+  
   return (
     <div>
       <header>
@@ -31,12 +36,9 @@ const LandingPage = () => {
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#"><IoMdPerson size="2em" style={{  }} />Nome Usuário</Nav.Link>
-              <Button  className="btn-dark ms-4">
+              <Nav.Link href="#"><IoMdPerson size="2em" />Nome Usuário</Nav.Link>
+              <Button onClick={() => navigate('/login')} className="btn-dark ms-4" style={{ borderRadius: '12px' }}>
                 Login
-              </Button>
-              <Button className="btn-dark ms-2">
-                Cadastre-se
               </Button>
             </Nav>
           </Navbar.Collapse>
